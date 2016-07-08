@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Session3</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="weather_app">Weather App</string>
+    <string name="hanoi">Ha Noi</string>
+    <string name="haiphong">Hai Phong</string>
+    <string name="namdinh">Nam Dinh</string>
+    <string name="hanam">Ha Nam</string>
+    <string name="title_activity_detail">DetailActivity</string>
+
+</resources>
