@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">EmployeeRecycler</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_employee_list">EmployeeListActivity</string>
+</resources>
