@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.techkid.tqdu.tripadvisor.PlaceDetailActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:id="@+id/place_photos">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:background="@drawable/imageview_border"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/big_photo"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/imageview_border"
+                    android:src="@mipmap/ic_launcher"
+                    android:id="@+id/small_photo1"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/imageview_border"
+                    android:src="@mipmap/ic_launcher"
+                    android:id="@+id/small_photo2"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JW Cafe"
+            android:textColor="#212121"
+            android:textSize="27sp"
+            android:id="@+id/place_name"
+            android:layout_below="@id/place_photos"
+            android:layout_marginTop="10dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rating_icon"
+            android:layout_below="@id/place_name"
+            android:src="@drawable/ta_rating_1_small"
+            android:layout_marginTop="7dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#212121"
+            android:textSize="20sp"
+            android:text="3,4 km"
+            android:id="@+id/distance"
+            android:layout_below="@id/place_name"
+            android:layout_toRightOf="@id/rating_icon"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="7dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#212121"
+            android:textSize="20sp"
+            android:text="Open now"
+            android:id="@+id/open_now"
+            android:layout_below="@id/rating_icon"
+            android:layout_marginTop="7dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="#212121"
+            android:textSize="22sp"
+            android:text="Place Info"
+            android:id="@+id/place_info"
+            android:layout_below="@id/open_now"
+            android:layout_marginTop="7dp"
+            android:gravity="center"
+            android:background="#E0E0E0"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/place_toggle"
+            android:layout_below="@id/place_info"
+            android:src="@drawable/btn_toolbar_map"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2E7D32"
+            android:textSize="20sp"
+            android:id="@+id/place_name_address"
+            android:text="JW Mariot No 8 Do Duc Duc KSDFKSDF MSADFMSADF"
+            android:layout_below="@id/place_info"
+            android:layout_toRightOf="@id/place_toggle"
+            android:gravity="center"
+            android:layout_marginTop="5dp"/>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/place_tel_icon"
+            android:layout_below="@id/place_toggle"
+            android:src="@drawable/btn_toolbar_call"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2E7D32"
+            android:textSize="20sp"
+            android:id="@+id/place_tel_number"
+            android:text="+8482829212"
+            android:layout_below="@id/place_toggle"
+            android:layout_toRightOf="@id/place_tel_icon"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"/>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/place_email"
+            android:layout_below="@id/place_tel_icon"
+            android:src="@drawable/btn_toolbar_email"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2E7D32"
+            android:textSize="20sp"
+            android:id="@+id/place_email_address"
+            android:text="jw@gmail.com"
+            android:layout_below="@id/place_tel_icon"
+            android:layout_toRightOf="@id/place_email"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="#212121"
+            android:textSize="22sp"
+            android:text="Place Images"
+            android:id="@+id/place_images"
+            android:layout_below="@id/place_email"
+            android:layout_marginTop="7dp"
+            android:gravity="center"
+            android:background="#E0E0E0"/>
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView"
+            android:layout_below="@id/place_images">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_container"
+                android:orientation="horizontal"></LinearLayout>
+        </HorizontalScrollView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="#212121"
+            android:textSize="22sp"
+            android:text="Reviews"
+            android:id="@+id/place_reviews"
+            android:layout_below="@id/scrollView"
+            android:layout_marginTop="7dp"
+            android:gravity="center"
+            android:background="#E0E0E0"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/review_list"
+            android:layout_below="@+id/place_reviews"></ListView>
+    </RelativeLayout>
+
+</ScrollView>
+
+
