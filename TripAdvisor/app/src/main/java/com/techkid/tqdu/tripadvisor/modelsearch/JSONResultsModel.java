@@ -37,13 +37,13 @@ public class JSONResultsModel implements Serializable{
     @SerializedName(VICINITY)
     private String vicinity;
 
-    private float distance;
+    private double distance;
 
-    public float getDistance() {
+    public double getDistance() {
         return distance;
     }
 
-    public void setDistance(float distance) {
+    public void setDistance(double distance) {
         this.distance = distance;
     }
 

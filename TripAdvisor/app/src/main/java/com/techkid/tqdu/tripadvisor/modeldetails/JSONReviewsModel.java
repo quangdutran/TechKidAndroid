@@ -2,6 +2,8 @@ package com.techkid.tqdu.tripadvisor.modeldetails;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 /**
  * Created by phamhoang on 8/28/16.
  */
@@ -9,7 +11,7 @@ public class JSONReviewsModel {
 
     private static final String ASPECTS = "aspects";
     @SerializedName(ASPECTS)
-    private JSONAspectsModel jsonAspectsModel;
+    private List<JSONAspectsModel> jsonAspectsModel;
 
     private static final String AUTHOR_NAME = "author_name";
     @SerializedName(AUTHOR_NAME)
@@ -27,11 +29,11 @@ public class JSONReviewsModel {
     @SerializedName(TEXT)
     private String text;
 
-    public JSONAspectsModel getJsonAspectsModel() {
+    public List<JSONAspectsModel> getJsonAspectsModel() {
         return jsonAspectsModel;
     }
 
-    public void setJsonAspectsModel(JSONAspectsModel jsonAspectsModel) {
+    public void setJsonAspectsModel(List<JSONAspectsModel> jsonAspectsModel) {
         this.jsonAspectsModel = jsonAspectsModel;
     }
 

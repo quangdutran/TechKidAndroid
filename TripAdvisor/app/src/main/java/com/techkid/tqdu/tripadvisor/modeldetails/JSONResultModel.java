@@ -35,7 +35,7 @@ public class JSONResultModel {
 
     private static final String PHOTOS = "photos";
     @SerializedName(PHOTOS)
-    private JSONPhotosModel jsonPhotosModel;
+    private List<JSONPhotosModel> jsonPhotosModel;
 
     private static final String PLACE_ID = "place_id";
     @SerializedName(PLACE_ID)
@@ -105,13 +105,10 @@ public class JSONResultModel {
         this.jsonOpenninghoursModel = jsonOpenninghoursModel;
     }
 
-    public JSONPhotosModel getJsonPhotosModel() {
+    public List<JSONPhotosModel> getJsonPhotosModel() {
         return jsonPhotosModel;
     }
 
-    public void setJsonPhotosModel(JSONPhotosModel jsonPhotosModel) {
-        this.jsonPhotosModel = jsonPhotosModel;
-    }
 
     public String getPlace_id() {
         return place_id;

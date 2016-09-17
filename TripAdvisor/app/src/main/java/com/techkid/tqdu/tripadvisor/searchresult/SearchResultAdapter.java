@@ -41,6 +41,13 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
     private LayoutInflater layoutInflater;
     private Location currentLocation;
 
+    public static final String PLACE_NAME = "place_name";
+    public static final String PLACE_RATE = "place_rate";
+    public static final String PLACE_ID = "place_id";
+    public static final String PLACE_DIS = "place_dis";
+    public static final String PLACE_LAT = "place_lat";
+    public static final String PLACE_LNG = "place_lng";
+
 
     public SearchResultAdapter(List<JSONResultsModel> placeList, Context context, Location currentLocation) {
         this.placeList = placeList;
@@ -80,6 +87,7 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
                         .setScale(1, BigDecimal.ROUND_HALF_UP)
                         .doubleValue();
                 holder.distance.setText(truncatedDouble + " km from here");
+                place.setDistance(truncatedDouble);
                 double rate = place.getRating();
                 holder.rateNumber.setText("Rating: " +rate);
                 if (rate< 1.5) {
@@ -131,7 +139,12 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, PlaceDetailActivity.class);
-                    intent.putExtra("Place",placeList.get(getAdapterPosition()));
+                    intent.putExtra(PLACE_NAME,placeList.get(getAdapterPosition()).getName());
+                    intent.putExtra(PLACE_DIS,placeList.get(getAdapterPosition()).getDistance());
+                    intent.putExtra(PLACE_ID,placeList.get(getAdapterPosition()).getPlace_id());
+                    intent.putExtra(PLACE_RATE,placeList.get(getAdapterPosition()).getRating());
+                    intent.putExtra(PLACE_LAT,placeList.get(getAdapterPosition()).getJsonGeometryModel().getJsonGeometryModelLocation().getLat());
+                    intent.putExtra(PLACE_LNG,placeList.get(getAdapterPosition()).getJsonGeometryModel().getJsonGeometryModelLocation().getLng());
                     context.startActivity(intent);
                     //Toast.makeText(itemView.getContext(),"vi tri"+getAdapterPosition(),Toast.LENGTH_SHORT).show();
                 }

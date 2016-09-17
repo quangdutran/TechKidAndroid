@@ -3,15 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/user_image"
         android:src="@mipmap/ic_launcher"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/user_review"
-        android:textSize="25sp"
+        android:textSize="18sp"
         android:layout_toRightOf="@id/user_image"
         android:layout_marginLeft="10dp"
         android:text="Nha hang dep"/>
@@ -23,6 +23,6 @@
         android:layout_toRightOf="@id/user_image"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
-        android:textSize="19sp"
+        android:textSize="15sp"
         android:text="Tran Quang Du - Rating 3"/>
 </RelativeLayout>

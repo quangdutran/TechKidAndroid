@@ -98,6 +98,7 @@
             android:id="@+id/place_info"
             android:layout_below="@id/open_now"
             android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
             android:gravity="center"
             android:background="#E0E0E0"/>
 
@@ -111,7 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#2E7D32"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:id="@+id/place_name_address"
             android:text="JW Mariot No 8 Do Duc Duc KSDFKSDF MSADFMSADF"
             android:layout_below="@id/place_info"
@@ -128,7 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#2E7D32"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:id="@+id/place_tel_number"
             android:text="+8482829212"
             android:layout_below="@id/place_toggle"
@@ -145,7 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#2E7D32"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:id="@+id/place_email_address"
             android:text="jw@gmail.com"
             android:layout_below="@id/place_tel_icon"
@@ -161,6 +162,7 @@
             android:id="@+id/place_images"
             android:layout_below="@id/place_email"
             android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
             android:gravity="center"
             android:background="#E0E0E0"/>
         <HorizontalScrollView
@@ -183,6 +185,7 @@
             android:id="@+id/place_reviews"
             android:layout_below="@id/scrollView"
             android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
             android:gravity="center"
             android:background="#E0E0E0"/>
         <ListView
