@@ -40,6 +40,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
     private ImageView bigPhoto;
     private ImageView smallPhoto1;
     private ImageView smallPhoto2;
+    TextView placeNameAddr;
     TextView placeName;
     TextView distance;
     ImageView rating;
@@ -119,7 +120,8 @@ public class PlaceDetailActivity extends AppCompatActivity {
         bigPhoto = (ImageView) findViewById(R.id.big_photo);
         smallPhoto1 = (ImageView) findViewById(R.id.small_photo1);
         smallPhoto2 = (ImageView) findViewById(R.id.small_photo2);
-        placeName = (TextView) findViewById(R.id.place_name_address);
+        placeNameAddr = (TextView) findViewById(R.id.place_name_address);
+        placeName = (TextView) findViewById(R.id.place_name);
         distance = (TextView) findViewById(R.id.distance);
         rating = (ImageView) findViewById(R.id.rating_icon);
         openNow = (TextView) findViewById(R.id.open_now);
@@ -223,7 +225,8 @@ public class PlaceDetailActivity extends AppCompatActivity {
     }
 
     private void fillData() {
-        placeName.setText(splaceName + jsonModel.getJsonResultModel().getFormatted_address());
+        placeName.setText(splaceName);
+        placeNameAddr.setText(splaceName + jsonModel.getJsonResultModel().getFormatted_address());
         distance.setText(sdistance + " km from here");
         double rate = srate;
         if (rate < 1.5) {
@@ -259,7 +262,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
     }
 
     private void setOnClick(){
-        placeName.setOnClickListener(new View.OnClickListener() {
+        placeNameAddr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double latitude = lat;
