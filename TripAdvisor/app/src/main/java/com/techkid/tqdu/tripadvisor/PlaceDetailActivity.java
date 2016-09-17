@@ -64,6 +64,9 @@ public class PlaceDetailActivity extends AppCompatActivity {
 
     private ProgressDialog progressBar;
 
+    String linkPhoto = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=";
+    String googleKey = "&key=" + Utility.GOOGLE_API_KEY;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -179,8 +182,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
     }
 
     private void fillPhotos() {
-        String linkPhoto = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=";
-        String googleKey = "&key=" + Utility.GOOGLE_API_KEY;
+
         if (jsonModel.getJsonResultModel() != null
                 && jsonModel.getJsonResultModel().getJsonPhotosModel().size() > 0) {
             Picasso.with(this).load(linkPhoto + jsonModel.getJsonResultModel().getJsonPhotosModel().get(0).getPhoto_reference() + googleKey)
@@ -202,11 +204,20 @@ public class PlaceDetailActivity extends AppCompatActivity {
             ImageView imageView = new ImageView(this);
             imageView.setId(i);
             imageView.setPadding(2, 2, 2, 2);
-            Picasso.with(this).load(linkPhoto + jsonModel.getJsonResultModel().getJsonPhotosModel().get(i).getPhoto_reference() + googleKey)
+            final String imgUrl = linkPhoto + jsonModel.getJsonResultModel().getJsonPhotosModel().get(i).getPhoto_reference() + googleKey;
+            Picasso.with(this).load(imgUrl)
                     .placeholder(R.drawable.ic_error_owl)
                     .error(R.drawable.ic_error_owl)
                     .into(imageView);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            imageView.setOnClickListener(new ImageView.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(PlaceDetailActivity.this,SingleImageActivity.class);
+                    intent.putExtra("pic_url",imgUrl);
+                    PlaceDetailActivity.this.startActivity(intent);
+                }
+            });
             imageContainer.addView(imageView);
         }
     }

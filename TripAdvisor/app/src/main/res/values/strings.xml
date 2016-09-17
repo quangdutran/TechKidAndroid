@@ -4,6 +4,7 @@
     <string name="mark_favorite">Mark as Favorite</string>
     <string name="title_activity_maps">Map</string>
     <string name="search_title">Search</string>
+    <string name="sort">Sort</string>
     <string name="search_hint">Hotels\\</string>
     <string name="lbl_you_are_at">YOU ARE AT</string>
     <string name="btn_get_location">GET MY LOCATION</string>

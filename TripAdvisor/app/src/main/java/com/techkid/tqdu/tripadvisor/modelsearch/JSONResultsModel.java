@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by phamhoang on 8/28/16.
  */
-public class JSONResultsModel implements Serializable{
+public class JSONResultsModel implements Comparable<JSONResultsModel>{
     private static final String GEOMETRY = "geometry";
     private static final String ICON = "icon";
     private static final String ID = "id";
@@ -131,5 +131,10 @@ public class JSONResultsModel implements Serializable{
 
     public void setVicinity(String vicinity) {
         this.vicinity = vicinity;
+    }
+
+    @Override
+    public int compareTo(JSONResultsModel jsonResultsModel) {
+        return ((Double)(getDistance() - jsonResultsModel.getDistance())).intValue();
     }
 }

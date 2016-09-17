@@ -57,8 +57,9 @@
         <activity android:name=".SelectionActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".ResultActivity" />
-        <activity android:name=".TestGPS"></activity>
-        <activity android:name=".PlaceDetailActivity"></activity>
+        <activity android:name=".TestGPS" />
+        <activity android:name=".PlaceDetailActivity" />
+        <activity android:name=".SingleImageActivity"></activity>
     </application>
 
 </manifest>

@@ -11,6 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -24,6 +27,9 @@ import com.techkid.tqdu.tripadvisor.modelsearch.JSONResultsModel;
 import com.techkid.tqdu.tripadvisor.searchresult.SearchResultAdapter;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import java.io.BufferedInputStream;
@@ -58,6 +64,8 @@ public class ResultActivity extends AppCompatActivity implements GoogleApiClient
 
     private boolean doneLoading = false;
 
+    String param;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +89,8 @@ public class ResultActivity extends AppCompatActivity implements GoogleApiClient
                     }
                 }
         ).start();
+        param = getIntent().getStringExtra("param");
+        if (param.isEmpty()) param = "restaurant";
         if (checkPlayServices()) {
             // Building the GoogleApi client
             buildGoogleApiClient();
@@ -118,7 +128,7 @@ public class ResultActivity extends AppCompatActivity implements GoogleApiClient
             longitude = mLastLocation.getLongitude();
 
             API_LINK = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + latitude + ","
-                    + longitude + "&radius=5000&type=restaurant&name=cruise&key=AIzaSyAKiJ77CjrCbwjQoUpcaAfg-mMT2YyIjXY";
+                    + longitude + "&radius=5000&type="+param+"&name=cruise&key=AIzaSyAKiJ77CjrCbwjQoUpcaAfg-mMT2YyIjXY";
             recyclerView = (RecyclerView) findViewById(R.id.recycle_view);
             DownloadJSON downloadJSON = new DownloadJSON();
             downloadJSON.execute(API_LINK);
@@ -237,6 +247,32 @@ public class ResultActivity extends AppCompatActivity implements GoogleApiClient
         @Override
         protected void onProgressUpdate(Void... values) {
             super.onProgressUpdate(values);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.option_sort,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.sort:
+                Collections.sort(placeList);
+                Location currentLoc = new Location("currentLoc");
+                currentLoc.setLongitude(longitude);
+                currentLoc.setLatitude(latitude);
+                SearchResultAdapter searchResultAdapter = new SearchResultAdapter(placeList, ResultActivity.this,currentLoc);
+                recyclerView.setAdapter(searchResultAdapter);
+                return true;
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
         }
     }
 }
